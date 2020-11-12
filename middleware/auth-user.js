@@ -14,6 +14,7 @@ exports.authenticateUser = async (req, res, next) => {
             where: {
                 emailAddress: credentials.name
             }
+
         })
 
         if (user) {
@@ -23,7 +24,7 @@ exports.authenticateUser = async (req, res, next) => {
             if (authenticated) {
                 req.currentUser = user
             } else {
-                message = `Authentication successful for username: ${user.firstName}`;
+                message = `Incorrect password`;
             }
 
         } else {
@@ -35,8 +36,7 @@ exports.authenticateUser = async (req, res, next) => {
     }
 
     if (message) {
-        console.warn(message)
-        res.status(401).json({ message: "Access denied"})
+        res.status(401).json({ status: "Access denied", message})
     } else {
         next()
     }

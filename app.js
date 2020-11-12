@@ -19,10 +19,25 @@ app.use(express.json());
 
 
 //Authenticate the conecction for sequelize
+
 (async () => {
 
   try {
-    await sequelize.sync({ force: true })
+    await sequelize.authenticate();
+    console.log("Successfully connected to the data base")
+
+  }catch(error) {
+    console.log("There was an error connecting to the data base")
+  }
+
+})();
+
+
+(async () => {
+
+  try {
+    await sequelize.sync()
+    console.log("Models successfully synchronize")
 
   }catch(error) {
     console.log("There was an error synchronizing the models to the data base")

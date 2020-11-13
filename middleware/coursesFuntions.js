@@ -105,9 +105,6 @@ const deleteCourse = async (req, res) => {
             res.status(403).json({ message:"You can't delete a course that wasn't created by you"})
         }
         
-        await courseToDelete.destroy()
-        res.end()
-
     } else {
         res.status(404).json({ message: "Course not found"})
     }

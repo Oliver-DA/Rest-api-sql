@@ -28,7 +28,7 @@ exports.updateOrdeleteCourse = async (req, res, id, action) => {
     if (course) {
 
         if (course.userId == req.currentUser.id) {
-            
+
             ( action == "destroy" ) ? await course.destroy() : await course.update(req.body);
             res.status(204).end();
             

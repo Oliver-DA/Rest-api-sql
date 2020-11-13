@@ -1,6 +1,7 @@
 # rest-api-sql brief description
  -This project is a rest-api with no interface, it's recommended to use
- -*postman* in order to test the routes but you can also use the *browser* 
+ -*postman* which is a collaboration platform for API development
+ -in order to test the routes but you can also use the *browser* 
  -or even a *Visual Studio Code* extension if you please. 
 
 # how to start the app 

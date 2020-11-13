@@ -5,7 +5,6 @@ const { User } = require("../db").models;
 
 exports.authenticateUser = async (req, res, next) => {
     let message;
-
     const credentials = auth(req)
     
     if (credentials) {
@@ -14,7 +13,6 @@ exports.authenticateUser = async (req, res, next) => {
             where: {
                 emailAddress: credentials.name
             }
-
         })
 
         if (user) {
@@ -24,20 +22,20 @@ exports.authenticateUser = async (req, res, next) => {
             if (authenticated) {
                 req.currentUser = user
             } else {
-                message = `Incorrect password`;
+                message = "Incorrect password";
             }
 
         } else {
-            message = `Authentication falied:`
+            message = "Authentication falied";
         }
 
     } else {
-        message = "Auth header not found"
+        message = "Auth header not found";
     }
 
     if (message) {
-        res.status(401).json({ status: "Access denied", message})
+        res.status(401).json({ status: "Access denied", message });
     } else {
-        next()
+        next();
     }
 }

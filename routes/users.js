@@ -12,5 +12,5 @@ router.get("/", authenticateUser, asyncHandler(getAuthenticatedUser));
 router.post("/", asyncHandler(createUser));
 
 //Export users router
-module.exports = router
+module.exports = router;
   

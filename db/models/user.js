@@ -36,7 +36,7 @@ module.exports = (sequelize) => {
                     msg: "Please provide a value for lastName"
                 },
                 notNull: {
-                    msg:"The value for lastName can not be null"
+                    msg: "The value for lastName can not be null"
                 }
             }
         },
@@ -49,11 +49,11 @@ module.exports = (sequelize) => {
                 notEmpty: {
                     msg: "Please provide a value for email address"
                 },
-                isEmail:{
+                isEmail: {
                     msg: "Please provide a valid email address"
                 },
                 notNull: {
-                    msg:"The value for emailAddress can not be null"
+                    msg: "The value for emailAddress can not be null"
                 },
             }
         },
@@ -67,7 +67,7 @@ module.exports = (sequelize) => {
                     msg: "Please provide a value for password"
                 },
                 notNull: {
-                    msg:"The value for password can not be null"
+                    msg: "The value for password can not be null"
                 }
             }
         }

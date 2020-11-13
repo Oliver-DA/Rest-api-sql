@@ -11,12 +11,9 @@ const mainRoute = require("./routes");
 const usersRoute = require("./routes/users");
 const coursesRoute = require("./routes/courses");
 
-// variable to enable global error logging.
-
 // create the Express app.
 const app = express();
 app.use(express.json());
-
 
 //Authenticate the conecction for sequelize.
 (async () => {

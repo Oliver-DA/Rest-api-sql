@@ -6,8 +6,8 @@ const { updateOrdeleteCourse } = require('./helperFunctions');
 const getAllCourses = async (req, res) => {
 
     const courses = await Course.findAll({
-        include:{
-            model:User,
+        include: {
+            model: User,
             attributes: ["firstName", "lastName", "emailAddress"]
         },
         attributes: { exclude: ["createdAt", "updatedAt"] }
@@ -22,36 +22,36 @@ const getOneCourse = async (req, res) => {
     const { id } = req.params
     const course = await Course.findOne({
         where: { id },
-        include:{
-            model:User,
+        include: {
+            model: User,
             attributes: ["firstName", "lastName", "emailAddress"]
         },
         attributes: { exclude: ["createdAt", "updatedAt"] }
     });
 
     if (course) {
-        res.json(course)
+        res.json(course);
     } else {
-        res.status(404).json({ message: "Course not found"})
+        res.status(404).json({ message: "Course not found" });
     }
 };
 
 //Creates a course
 const createCourse = async (req, res) => {
     await Course.create(req.body)
-    res.status(201).location("/").end()
+    res.status(201).location("/").end();
 };
 
 //Update a specific course
 const updateCourse = async (req, res) => {
     const { id } = req.params;
-    await updateOrdeleteCourse(req, res, id)
+    await updateOrdeleteCourse(req, res, id);
 };
 
 //Deletes a specific course
 const deleteCourse = async (req, res) => {
     const { id } = req.params;
-    await updateOrdeleteCourse(req, res, id, "destroy")
+    await updateOrdeleteCourse(req, res, id, "destroy");
 }
 
 //Export Courses Functions

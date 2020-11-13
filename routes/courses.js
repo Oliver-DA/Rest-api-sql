@@ -8,7 +8,7 @@ const {
     getOneCourse,
     createCourse,
     deleteCourse, 
-    updateCourse} = require("../middleware/coursesFuntions");
+    updateCourse } = require("../middleware/coursesFuntions");
 
 //Returns a list of all courses and their users
 router.get("/", asyncHandler(getAllCourses));
@@ -26,4 +26,4 @@ router.put("/:id", authenticateUser, asyncHandler(updateCourse));
 router.delete("/:id", authenticateUser, asyncHandler(deleteCourse));
 
 //Exports courses router
-module.exports = router
+module.exports = router;

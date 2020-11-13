@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { authenticateUser } = require("../middleware/auth-user");
-const { asyncHandler } = require("../middleware/asyncHandler");
+const { asyncHandler } = require("../middleware/helperFunctions");
 //Courses functions
 const {
     getAllCourses,
@@ -23,7 +23,7 @@ router.post("/", authenticateUser, asyncHandler(createCourse));
 router.put("/:id", authenticateUser, asyncHandler(updateCourse));
 
 //Deletes a specific course
-router.delete("/:id",authenticateUser, asyncHandler(deleteCourse));
+router.delete("/:id", authenticateUser, asyncHandler(deleteCourse));
 
 //Exports courses router
 module.exports = router

@@ -15,6 +15,7 @@ const getAuthenticatedUser =  async (req, res) => {
 
 //Creates a new User
 const createUser = async (req, res) => {
+
     let emailAddress = req.body.emailAddress || null;
     let emailValidation = await User.findOne({ where: { emailAddress }})
 
@@ -22,22 +23,9 @@ const createUser = async (req, res) => {
         res.status(400).json({ message: "This email address is already in use" })
 
     } else {
-
-        try {
-
-            req.body.password = req.body.password ? bcrypt.hashSync(req.body.password, 10): null;
-            const user = await User.create(req.body)
-            res.status(201).json({ user })
-    
-        }catch(error) {
-            
-            if (error.name == "SequelizeValidationError" || error.name == "SequelizeUniqueConstraintError") {
-                const errors = error.errors.map(e => e.message);
-                res.status(400).json({ errors })
-            } else {
-                throw error
-            }
-        }
+        req.body.password = req.body.password ? bcrypt.hashSync(req.body.password, 10): null;
+        await User.create(req.body)
+        res.status(201).location("/").end()
     }
 }
 

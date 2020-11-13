@@ -27,7 +27,7 @@ module.exports = (sequelize) => {
         },
 
         description: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
 
             validate: {
@@ -48,10 +48,6 @@ module.exports = (sequelize) => {
         materialsNeeded: {
             type: DataTypes.STRING,
             allowNull: true
-        },
-
-        userId: {
-            type: DataTypes.INTEGER
         }
 
     }, { sequelize })

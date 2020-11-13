@@ -34,6 +34,7 @@ const getOneCourse = async (req, res) => {
     } else {
         res.status(404).json({ message: "Course not found" });
     }
+
 };
 
 //Creates a course
@@ -52,7 +53,7 @@ const updateCourse = async (req, res) => {
 const deleteCourse = async (req, res) => {
     const { id } = req.params;
     await updateOrdeleteCourse(req, res, id, "destroy");
-}
+};
 
 //Export Courses Functions
 module.exports = { getAllCourses, getOneCourse, createCourse, updateCourse, deleteCourse}

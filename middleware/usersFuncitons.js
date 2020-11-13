@@ -15,8 +15,9 @@ const getAuthenticatedUser =  async (req, res) => {
 
 //Creates a new User
 const createUser = async (req, res) => {
-
+    //If an email is provided in the request body assign it's value to emailAddress
     let emailAddress = req.body.emailAddress || null;
+    //Try to find a user with the email provided to test if it already exist
     let emailValidation = await User.findOne({ where: { emailAddress} })
 
     if (emailValidation) {
@@ -29,5 +30,5 @@ const createUser = async (req, res) => {
     }
 }
 
-
+//Exporting User functions
 module.exports = { getAuthenticatedUser, createUser }

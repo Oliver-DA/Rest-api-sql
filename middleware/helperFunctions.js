@@ -42,4 +42,4 @@ exports.updateOrdeleteCourse = async (req, res, id, action) => {
     } else {
         res.status(404).json({ message });
     }
-}
+};

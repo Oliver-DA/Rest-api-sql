@@ -46,13 +46,13 @@ const createCourse = async (req, res) => {
 //Update a specific course
 const updateCourse = async (req, res) => {
     const { id } = req.params;
-    updateOrdeleteCourse(req, res, id);
+    await updateOrdeleteCourse(req, res, id);
 };
 
 //Deletes a specific course
 const deleteCourse = async (req, res) => {
     const { id } = req.params;
-    updateOrdeleteCourse(req, res, id, "destroy");
+    await updateOrdeleteCourse(req, res, id, "destroy");
 };
 
 //Export Courses Functions

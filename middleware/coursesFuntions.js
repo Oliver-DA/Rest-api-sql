@@ -56,4 +56,4 @@ const deleteCourse = async (req, res) => {
 };
 
 //Export Courses Functions
-module.exports = { getAllCourses, getOneCourse, createCourse, updateCourse, deleteCourse}
+module.exports = { getAllCourses, getOneCourse, createCourse, updateCourse, deleteCourse }

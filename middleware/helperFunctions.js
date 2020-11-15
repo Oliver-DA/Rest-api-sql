@@ -22,6 +22,9 @@ exports.asyncHandler = (cb) => {
 //Handles both routes for update or delete a course based on the action argument
 exports.updateOrdeleteCourse = async (req, res, id, action) => {
 
+    let title = req.body.title || null;
+    let description = req.body.description || null;
+    
     const course = await Course.findByPk(id);
     let message = "Course not found";
 
@@ -29,7 +32,7 @@ exports.updateOrdeleteCourse = async (req, res, id, action) => {
 
         if (course.userId == req.currentUser.id) {
 
-            ( action == "destroy" ) ? await course.destroy() : await course.update(req.body);
+            ( action == "destroy" ) ? await course.destroy() : await course.update({ title, description });
             res.status(204).end();
             
         } else {

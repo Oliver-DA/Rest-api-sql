@@ -40,7 +40,7 @@ const getOneCourse = async (req, res) => {
 //Creates a course
 const createCourse = async (req, res) => {
     await Course.create(req.body)
-    res.status(201).location("/api/courses").end();
+    res.status(201).location("/api/courses/:id").end();
 };
 
 //Update a specific course

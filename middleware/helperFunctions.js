@@ -22,8 +22,8 @@ exports.asyncHandler = (cb) => {
 //Handles both routes for update or delete a course based on the action argument
 exports.updateOrdeleteCourse = async (req, res, id, action) => {
 
-    let title = req.body.title || null;
-    let description = req.body.description || null;
+    let title = req.body.title || "";
+    let description = req.body.description || "";
     
     const course = await Course.findByPk(id);
     let message = "Course not found";

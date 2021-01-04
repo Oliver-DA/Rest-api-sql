@@ -10,7 +10,7 @@
  -Second use the command *npm run seed* to poblate the database with some provided data.
  -Lastly run *npm start* and your app is going to be listening on port *5000*.
 
- # rotes availables on the app 
+ # routes availables on the app 
  -GET: */api/users* returns an authenticated user. `(requires authentication)`
  -POST: */api/users* creates a user.
  -GET: */api/courses* returns a list of all the courses.
